@@ -1,0 +1,50 @@
+Code:-
+class Solution {
+public:
+    string reverseWords(string s) {
+        int i=0;
+        int n=s.length();
+        string result;
+
+        while(i<n)
+        {
+          while(i<n && s[i]==' ')
+          {
+              i++;
+          }
+          if(i>=n)
+          {
+              break;
+          }
+
+          int j=i+1;
+
+          while(j<n && s[j]!=' ')
+          {
+              j++;
+          }
+          string sub=s.substr(i,j-i);
+          if(result.length()==0)
+          {
+             result=sub;
+          }
+          else
+          {
+          result=sub+" "+result;
+          }
+          i=j+1;
+        }
+        return result;
+    }
+};
+
+
+Algo:-
+1)i at start n j at end
+2)if space increment i
+3)if not space increment  j
+4)sub=j-1 eg hello
+5)length 0 then sub only.eg hello
+6)i increment so i to space eg
+7)then again sub=world + res=hello
+ i.e World Hello
