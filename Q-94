@@ -31,3 +31,9 @@ public:
         return sum;
     }
 };
+
+app:-
+1)first insert all pair
+2)if first > second place as it is
+3)if 2nd more than first
+    2nd - 1st do.such type get ans
