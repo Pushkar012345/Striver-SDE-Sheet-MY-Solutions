@@ -1,0 +1,32 @@
+Approach:-
+1)sort words
+2)took 1st and last word
+3)iterate each char
+4)if not same-break
+5)same push to res and return.
+
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        if(strs.empty())
+        {
+            return "";
+        }
+        string result="";
+        int n=strs.size();
+        sort(strs.begin(),strs.end());
+        string first=strs[0];
+        string last=strs[n-1];
+
+        for(int i=0;i<first.length();i++)
+        {
+             if(first[i]!=last[i])
+             {
+                 break;
+             }
+
+            result+=first[i];
+        }
+        return result;
+    }
+};
