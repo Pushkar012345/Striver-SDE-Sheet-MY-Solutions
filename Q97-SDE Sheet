@@ -1,0 +1,47 @@
+Sure, let's dry run the code with an example:
+
+```cpp
+#include <iostream>
+
+class Solution {
+public:
+    int repeatedStringMatch(std::string a, std::string b) {
+        std::string temp = a;
+        int c = 1;
+
+        while (a.size() < b.size()) {
+            a += temp;
+            c++;
+        }
+
+        if (a.find(b) != -1) return c;
+
+        a += temp;
+        c++;
+
+        if (a.find(b) != -1) return c;
+
+        return -1;
+    }
+};
+
+int main() {
+    Solution solution;
+    std::string strA = "abcd";
+    std::string strB = "cdabcdab";
+
+    int result = solution.repeatedStringMatch(strA, strB);
+    std::cout << "Result: " << result << std::endl;
+
+    return 0;
+}
+```
+
+Let's dry run this code with `strA = "abcd"` and `strB = "cdabcdab"`:
+
+1. Initial values: `a = "abcd"`, `temp = "abcd"`, `c = 1`.
+2. First while loop: `a` becomes `"abcdabcd"`, `c` becomes `2` (since `a.size()` is still less than `b.size()`).
+3. Second while loop: `a` becomes `"abcdabcdabcd"`, `c` becomes `3`.
+4. Check if `a.find(b) != -1`: `"abcdabcdabcd"` contains `"cdabcdab"`, so return `c` which is `3`.
+
+So, for this example, the result is `3`. The code is finding how many times the string `a` needs to be repeated for string `b` to be a substring of `a`.
