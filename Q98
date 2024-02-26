@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        int index=haystack.find(needle);
+        while(index!=string::npos)
+        {
+            return index;
+        }
+        return -1;
+    }
+};
+
+logic easy unserstand by code seen.
