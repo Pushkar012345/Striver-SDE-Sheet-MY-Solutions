@@ -1,0 +1,75 @@
+Certainly! Let's dry run the given C++ code for the `countAndSay` function with an example.
+
+```cpp
+#include <iostream>
+
+class Solution {
+public:
+    std::string solve(std::string s, int n) {
+        if (n == 1) {
+            return s;
+        }
+        int freq = 1;
+        char ch = s[0];
+        std::string ans = "";
+        s += "#";
+        for (int i = 1; i < s.size(); i++) {
+            if (s[i] == ch) {
+                freq++;
+            } else {
+                ans += std::to_string(freq) + ch;
+                freq = 1;
+                ch = s[i];
+            }
+        }
+        return solve(ans, n - 1);
+    }
+
+    std::string countAndSay(int n) {
+        return solve("1", n);
+    }
+};
+
+int main() {
+    Solution solution;
+    int n = 5;
+    std::string result = solution.countAndSay(n);
+    std::cout << "The countAndSay result for n=" << n << " is: " << result << std::endl;
+
+    return 0;
+}
+```
+
+Let's dry run the `countAndSay` function for `n = 5`:
+
+1. Initial call: `solve("1", 5)`
+   - Iteration 1:
+     - `s = "1"`
+     - No change, return `solve("1", 4)`
+   - Iteration 2:
+     - `s = "11"`
+     - Count contiguous occurrences: `freq = 2`, `ch = '1'`
+     - Append to result: `ans = "21"`
+     - Reset count and character: `freq = 1`, `ch = '1'`
+     - Return `solve("21", 3)`
+   - Iteration 3:
+     - `s = "21"`
+     - Count contiguous occurrences: `freq = 1`, `ch = '2'`
+     - Append to result: `ans = "1211"`
+     - Reset count and character: `freq = 1`, `ch = '1'`
+     - Return `solve("1211", 2)`
+   - Iteration 4:
+     - `s = "1211"`
+     - Count contiguous occurrences: `freq = 1`, `ch = '1'`
+     - Append to result: `ans = "111221"`
+     - Reset count and character: `freq = 1`, `ch = '2'`
+     - Return `solve("111221", 1)`
+   - Iteration 5:
+     - `s = "111221"`
+     - Count contiguous occurrences: `freq = 1`, `ch = '1'`
+     - Append to result: `ans = "312211"`
+     - Reset count and character: `freq = 1`, `ch = '2'`
+     - Return `solve("312211", 0)`
+   - Base case reached: Return `"312211"`
+
+Therefore, the final result for `countAndSay(5)` is `"312211"`.
