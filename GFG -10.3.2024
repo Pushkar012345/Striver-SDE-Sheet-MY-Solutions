@@ -1,0 +1,44 @@
+Expected Approach
+Intuition
+The intuition here is to sort the array, enabling easy access to the middle elements. For an odd-sized array, the median is the middle element. In the case of an even-sized array, the median is the average of the two middle elements. Sorting ensures a systematic arrangement, facilitating straightforward determination of the median.
+
+Example
+Input: N= 5
+
+arr[]= { 90, 100, 78, 89, 67 }
+
+sort the array: { 67, 78, 89, 90, 100 }
+since N is odd, the middle element will be the median
+here, 89 is the result.
+Note: for even N, the median be the average of two middle elements
+
+Implementation
+Sorting: The function starts by sorting the input vector v in ascending order. Sorting is a crucial step for finding the median since it allows easy access to the middle elements.
+Finding the Median:
+Odd Size Case: If the size of the vector is odd ,then the median is simply the middle element.
+Even Size Case: If the size of the vector is even, the median is the average of the two middle elements.
+Return Result: The calculated median (ans) is then returned from the function.
+Complexity
+Time Complexity: Sorting step the array has takes O(n * log(n)) time, where n is the size of the array.
+Space Complexity:The algorithm uses only a constant amount of extra space, so the space complexity is O(1).
+class Solution
+{
+public:
+    // Function to find the median of a vector of integers
+    int find_median(vector<int> v)
+    {
+        // Sorting the vector in ascending order
+        sort(v.begin(),v.end());
+
+        int ans ;
+        // if the size of the vector is odd
+        if(v.size() & 1)
+            // Median is the middle element
+            ans = v[v.size() / 2];
+        // If the size of the vector is even
+        else
+            // Median is the average of the two middle elements
+            ans = (v[v.size() / 2] + v[v.size() / 2 - 1]) / 2;
+        return ans;
+    }
+};
