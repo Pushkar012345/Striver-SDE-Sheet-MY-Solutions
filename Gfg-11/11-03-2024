@@ -1,0 +1,38 @@
+Expected Approach:
+Intuition:
+We will find the sum of cubes of all the digits of the number and then compare it with the number.
+
+Implementation:
+Initialize variables sum equal to 0 and temp equal to n.
+Run a loop while temp is greater than 0.
+find the last digit of the temp and add its cube to the sum and divide temp by 10 to remove the last digit from the temp.
+If sum is equal to n then return yes otherwise no.
+Code:
+//Back-end complete function Template for C++
+class Solution {
+  public:
+    //Function to check if a number is an Armstrong number.
+    string armstrongNumber(int n){
+        int sum=0; //variable to store the sum of cube of digits
+        int temp=n; //variable to store the value of n
+
+        //loop to calculate the sum of cube of digits
+        while(temp)
+        {
+            int last_dig=temp%10; //extracting the last digit of temp
+            temp/=10; //updating temp to remove the last digit
+            sum+=(last_dig*last_dig*last_dig); //adding the cube of last digit to sum
+        }
+
+        //checking if the sum is equal to the original number
+        //and returning "Yes" if true, "No" if false
+        if(sum==n)
+            return "Yes";
+        else 
+            return "No";
+    }
+ 
+};
+Complexity:
+Time Complexity: O(1), As we run a loop of size 3.
+Space Complexity: O(1), As we are using constant extra space.
