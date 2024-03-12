@@ -1,0 +1,16 @@
+Expected Approach:
+Intuition:
+The approach involves iteratively extracting the last digit of the number N and appending it to the start of the reversed number rev_n. This process continues until there are no more digits left in N.
+
+Implementation:
+Initialize a variable rev_n to 0 to store the reversed number.
+Run a loop while n is greater than 0.
+It extracts the last digit of n the using n % 10.
+Append the last digit to rev_n(i.e. rev_n = rev_n*10 + n%10).
+update n by removing its last digit (n / 10).
+Finally, the reversed number rev_n is returned.
+Code:
+//Function to reverse the digits of a given number class Solution { public: //Function to reverse the digits of a given number long long int reverse_digit(long long int n) { long long int rev_n = 0; //Iteration to reverse the digits while(n > 0) { rev_n = rev_n*10 + n%10; n = n/10; } //Returning the reversed number return rev_n; } };
+Complexity:
+Time Complexity: O(logN), As we are iterating through the every digits on the number N and the number of digits in the number N will be equal to logN.
+Space Complexity: O(1), As we are using a constant extra space.
