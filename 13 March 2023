@@ -1,0 +1,17 @@
+Expected Approach
+Intuition
+We can easily find kth element from the beginning which is arr[k-1] and from end is arr[n-k]. So now use the swap method to swap them.
+
+Implementation
+Retrieve the value of the kth element from the beginning and store it in a temporary variable (tmp).
+Assign the value of the kth element from the end to the position of the kth element from the beginning.
+Assign the value stored in the temporary variable to the position of the kth element from the end.
+Code
+class Solution { public: void swapKth(int n, int k, vector<int> &arr) { //swapping the k'th element from beginning and end. swap(arr[k - 1], arr[n - k]); } };
+Complexity
+Time Complexity:
+The time complexity of this method is constant, O(1).
+Regardless of the size of the input array arr or the value of k, the number of operations remains constant.
+Space Complexity:
+The space complexity of this method is also constant, O(1).
+It uses a constant amount of additional space regardless of the input size.
